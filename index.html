@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>จองโต๊ะร้านอาหารโรงแรม</title>
+  <style>
+    :root {
+      --accent: #0f62fe;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --page-bg: #f4f6fb;
+      --glass: rgba(255,255,255,0.6);
+      font-family: "Segoe UI", Roboto, "Noto Sans", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #eef2ff 0%, var(--page-bg) 100%);
+      color: #111827;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    p.lead {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card .meta {
+      flex: 1;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .radio {
+      display: flex;
+      align-items: center;
+    }
+    .radio input[type="radio"] {
+      width: 18px;
+      height: 18px;
+    }
+    form.booking {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+      background: var(--glass);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .btn {
+      padding: 10px 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn.ghost {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+    }
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 0;
+      color: var(--muted);
+    }
+    .right {
+      background: var(--card-bg);
+      padding: 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+    .footer-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      form.booking { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>ระบบจองโต๊ะห้องอาหาร</h1>
+        <p class="lead">ให้บริการทุกวัน เวลา 06:00 – 23:00</p>
+      </div>
+      <div>
+        <small class="footer-note">ค่าบริการ: ผู้เข้าพักในโรงแรม = ฟรี / บุคคลภายนอก = 999 บาท/คน</small>
+      </div>
+    </header>
+
+    <section class="grid" aria-label="รายการห้องอาหาร">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1543352634-8d3bca3b6f0f?q=80&w=1200" alt="Arizuka">
+        <div class="card-body">
+          <div class="meta">
+            <h3>Arizuka — ญี่ปุ่นโมเดิร์น</h3>
+            <p>ซูชิ ปรุงสด เมนูคัดสรร</p>
+            <p style="margin-top:4px;font-size:0.85rem;color:var(--muted)">เวลา: 06:00 - 23:00</p>
+          </div>
+          <div class="radio">
+            <input type="radio" name="restaurant" value="Arizuka">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200" alt="Sky Restaurant">
+        <div class="card-body">
+          <div class="meta">
+            <h3>Sky Restaurant — Rooftop / International</h3>
+            <p>ดินเนอร์บนดาดฟ้า อาหารนานาชาติ</p>
+            <p style="margin-top:4px;font-size:0.85rem;color:var(--muted)">เวลา: 06:00 - 23:00</p>
+          </div>
+          <div class="radio">
+            <input type="radio" name="restaurant" value="Sky Restaurant">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?q=80&w=1200" alt="Kindee Yudee">
+        <div class="card-body">
+          <div class="meta">
+            <h3>Kindee Yudee Eatery &amp; Bar — ไทย / ฟิวชั่น</h3>
+            <p>รสไทยประยุกต์ บรรยากาศอบอุ่น</p>
+            <p style="margin-top:4px;font-size:0.85rem;color:var(--muted)">เวลา: 06:00 - 23:00</p>
+          </div>
+          <div class="radio">
+            <input type="radio" name="restaurant" value="Kindee Yudee Eatery and Bar">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1200" alt="Lingjingxia">
+        <div class="card-body">
+          <div class="meta">
+            <h3>Lingjingxia — จีน / ติ่มซำ</h3>
+            <p>ติ่มซำรสดั้งเดิม เมนูจีนหลากหลาย</p>
+            <p style="margin-top:4px;font-size:0.85rem;color:var(--muted)">เวลา: 06:00 - 23:00</p>
+          </div>
+          <div class="radio">
+            <input type="radio" name="restaurant" value="Lingjingxia">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <form class="booking" id="bookingForm"
+      method="POST"
+      action="https://docs.google.com/forms/d/e/1FAIpQLScnnMBumXJ4g0jB4RBTJ0k7FNA7odLOMtjy8rE2S_53-TjaWA/formResponse"
+      target="hidden_iframe"
+      onsubmit="return submitForm();">
+
+      <!-- Hidden inputs mapped to Google Forms -->
+      <input type="hidden" name="entry.612576059" id="g-restaurant">
+      <input type="hidden" name="entry.499366729" id="g-guestType">
+      <input type="hidden" name="entry.2001397635" id="g-date">
+      <input type="hidden" name="entry.761176940" id="g-time">
+      <input type="hidden" name="entry.622857998" id="g-num">
+      <input type="hidden" name="entry.283725941" id="g-name">
+      <input type="hidden" name="entry.1889183686" id="g-email">
+      <input type("hidden") name="entry.1176563714" id="g-phone">
+      <input type="hidden" name="entry.410909563" id="g-notes">
+
+      <div class="left">
+        <label for="guestType">ท่านเป็น</label>
+        <select id="guestType" required>
+          <option value="hotel">ผู้เข้าพักในโรงแรม (ฟรี)</option>
+          <option value="external">บุคคลภายนอก (999 บาท)</option>
+        </select>
+
+        <label for="date">วันที่</label>
+        <input type="date" id="date" required />
+
+        <label for="time">เวลา</label>
+        <input type="time" id="time" min="06:00" max="23:00" required />
+
+        <label for="num">จำนวนท่าน</label>
+        <input type="number" id="num" min="1" value="1" required />
+
+        <label for="contactName">ชื่อผู้จอง</label>
+        <input type="text" id="contactName" required />
+
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" />
+
+        <label for="phone">เบอร์โทรศัพท์</label>
+        <input type="text" id="phone" required />
+
+        <label for="notes">หมายเหตุ / โอกาส</label>
+        <textarea id="notes"></textarea>
+
+        <button type="submit" class="btn">ยืนยันการจอง</button>
+      </div>
+
+      <aside class="right">
+        <h3>สรุปการจอง</h3>
+        <div class="summary-row"><span>ร้านที่เลือก</span><span id="s-restaurant">–</span></div>
+        <div class="summary-row"><span>วันที่ / เวลา</span><span id="s-datetime">–</span></div>
+        <div class="summary-row"><span>ประเภทผู้จอง</span><span id="s-guesttype">–</span></div>
+        <div class="summary-row"><span>จำนวน</span><span id="s-num">–</span></div>
+        <div class="summary-row"><span>ค่าบริการ</span><span id="s-price">–</span></div>
+        <div style="margin-top:10px;">
+          <div class="price" id="totalText">ยอดชำระ: 0 บาท</div>
+          <div class="footer-note">อัตราบุคคลภายนอก: 999 บาท / ท่าน</div>
+        </div>
+        <button type="button" class="btn" onclick="previewBooking()">ดูตัวอย่าง</button>
+        <div class="footer-note" style="margin-top:8px;">
+          รูปภาพเป็นตัวอย่าง — เปลี่ยน URL src ของ &lt;img&gt; ได้ตามต้องการ
+        </div>
+      </aside>
+    </form>
+  </div>
+
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    const PRICE_EXTERNAL = 999;
+
+    // ตั้งค่า min วันที่เป็นวันนี้
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('date').setAttribute('min', today);
+
+    const updateSummary = () => {
+      const restEl = document.querySelector('input[name="restaurant"]:checked');
+      const restName = restEl ? restEl.value : '–';
+      document.getElementById('s-restaurant').innerText = restName;
+
+      const d = document.getElementById('date').value;
+      const t = document.getElementById('time').value;
+      document.getElementById('s-datetime').innerText = (d && t) ? `${d} เวลา ${t}` : '–';
+
+      const gt = document.getElementById('guestType').value;
+      document.getElementById('s-guesttype').innerText = (gt === 'hotel') ? 'ผู้เข้าพัก (ฟรี)' : 'บุคคลภายนอก';
+
+      const num = parseInt(document.getElementById('num').value || '0', 10);
+      document.getElementById('s-num').innerText = isNaN(num) ? '–' : `${num} ท่าน`;
+
+      const cost = (gt === 'external') ? (isNaN(num) ? 0 : num * PRICE_EXTERNAL) : 0;
+      document.getElementById('s-price').innerText = cost.toLocaleString('th-TH') + ' บาท';
+      document.getElementById('totalText').innerText = `ยอดชำระ: ${cost.toLocaleString('th-TH')} บาท`;
+    };
+
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('change', updateSummary);
+      el.addEventListener('input', updateSummary);
+    });
+    document.querySelectorAll('input[name="restaurant"]').forEach(r => r.addEventListener('change', updateSummary));
+    updateSummary();
+
+    function submitForm(){
+      const restEl = document.querySelector('input[name="restaurant"]:checked');
+      if(!restEl){
+        alert('กรุณาเลือกห้องอาหาร');
+        return false;
+      }
+      const rest = restEl.value;
+      const gt = document.getElementById('guestType').value;
+      const d = document.getElementById('date').value;
+      const t = document.getElementById('time').value;
+      if(!d || !t){
+        alert('กรุณาระบุวันที่และเวลา');
+        return false;
+      }
+      // ตรวจเวลา
+      const [hh, mm] = t.split(':').map(Number);
+      if(hh < 6 || hh > 23 || (hh === 23 && mm > 0)){
+        alert('เวลาต้องอยู่ในช่วง 06:00 - 23:00');
+        return false;
+      }
+      const num = parseInt(document.getElementById('num').value || '0', 10);
+      if(isNaN(num) || num < 1){
+        alert('จำนวนผู้จองอย่างน้อย 1 คน');
+        return false;
+      }
+      const nm = document.getElementById('contactName').value.trim();
+      const ph = document.getElementById('phone').value.trim();
+      if(!nm || !ph){
+        alert('กรุณาระบุชื่อ และเบอร์โทรศัพท์');
+        return false;
+      }
+      const em = document.getElementById('email').value.trim();
+      const no = document.getElementById('notes').value.trim();
+
+      // ใส่ค่าลง hidden input
+      document.getElementById('g-restaurant').value = rest;
+      document.getElementById('g-guestType').value = gt;
+      document.getElementById('g-date').value = d;
+      document.getElementById('g-time').value = t;
+      document.getElementById('g-num').value = num;
+      document.getElementById('g-name').value = nm;
+      document.getElementById('g-email').value = em;
+      document.getElementById('g-phone').value = ph;
+      document.getElementById('g-notes').value = no;
+
+      // ส่งแบบฟอร์มไป Google Forms
+      setTimeout(() => {
+        alert('ส่งข้อมูลการจองเรียบร้อยแล้ว ขอบคุณครับ');
+      }, 500);
+      return true;
+    }
+
+    function previewBooking(){
+      const restEl = document.querySelector('input[name="restaurant"]:checked');
+      if(!restEl) { alert('กรุณาเลือกห้องอาหาร'); return; }
+      const rest = restEl.value;
+      const d = document.getElementById('date').value || '–';
+      const t = document.getElementById('time').value || '–';
+      const gt = document.getElementById('guestType').value;
+      const num = document.getElementById('num').value || '–';
+      const nm = document.getElementById('contactName').value || '–';
+      const ph = document.getElementById('phone').value || '–';
+      const em = document.getElementById('email').value || '–';
+      const no = document.getElementById('notes').value || '–';
+      const cost = (gt === 'external') ? (parseInt(num) * PRICE_EXTERNAL) : 0;
+      let summary = `ร้าน: ${rest}\nวันที่: ${d}\nเวลา: ${t}\nประเภท: ${gt === 'hotel' ? 'ผู้เข้าพัก' : 'บุคคลภายนอก'}\nจำนวน: ${num}\nยอดชำระ: ${cost.toLocaleString('th-TH')} บาท\n\nชื่อ: ${nm}\nเบอร์: ${ph}\nอีเมล: ${em}\nหมายเหตุ: ${no}`;
+      alert(summary);
+    }
+  </script>
+</body>
+</html>
